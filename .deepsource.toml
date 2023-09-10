@@ -1,0 +1,7 @@
+version = 1
+
+[[analyzers]]
+name = "go"
+
+  [analyzers.meta]
+  import_root = "github.com/johncosta/U6143-ssd1306-golang"
