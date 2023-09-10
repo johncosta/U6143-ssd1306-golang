@@ -1,0 +1,12 @@
+site_name: Controller for U6143-ssd1306
+site_description: 'This is a prototype repository which attempts to create a golang version of https://github.com/UCTRONICS/U6143_ssd1306'
+site_author: 'John Costa'
+docs_dir: docs/
+repo_name: 'johncosta/U6143-ssd1306-golang'
+repo_url: 'https://github.com/johncosta/U6143-ssd1306-golang'
+nav:
+  - Home: index.md
+theme:
+  name: 'material'
+markdown_extensions:
+  - pymdownx.details
