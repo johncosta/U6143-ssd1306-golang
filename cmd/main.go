@@ -1,7 +1,9 @@
 package main
 
 import (
+	"U6143-ssd1306-golang/ipaddr"
 	"fmt"
+	"log"
 	"os"
 	"os/signal"
 	"syscall"
@@ -19,8 +21,9 @@ func main() {
 }
 
 func forever() {
+	ipv4Addr := ipaddr.Address{}.GetDisplayValueForInterface("eth0")
+	log.Printf("Found ipv4 address for eth0 as: %s", ipv4Addr)
 	for {
-		fmt.Printf("%v+\n", time.Now())
 		time.Sleep(time.Second) // TODO: add sleep duration
 	}
 }
