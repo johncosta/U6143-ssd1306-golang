@@ -10,4 +10,4 @@ build: # dockerized compile for the project
 
 .PHONY: up
 up: # dockerized execution of the file
-	docker compose -f .docker/compose.yml up
+	docker compose -f .docker/compose.yml up --build
