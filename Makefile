@@ -6,8 +6,8 @@ help: # Show help for each of the Makefile recipes.
 
 .PHONY: build
 build: # dockerized compile for the project
-	docker compose -f .docker/compose.yml build
+	docker compose -f .docker/compose.yml build --no-cache
 
 .PHONY: up
-up: # dockerized execution of the file
-	docker compose -f .docker/compose.yml up --build
+up: build # dockerized execution of the file
+	docker compose -f .docker/compose.yml up --remove-orphans

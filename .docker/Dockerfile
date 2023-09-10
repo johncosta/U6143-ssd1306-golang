@@ -2,8 +2,9 @@
 FROM golang:1.21.1 as builder
 WORKDIR /src
 COPY . /src
-RUN go build -o /bin/main ./cmd/main.go
+RUN go build -o /bin/main ./cmd/...
 
-FROM scratch
-COPY --from=builder /bin/main /bin/main
+# TODO: re-enable scratchfiles
+#FROM scratch
+#COPY --from=builder /bin/main /bin/main
 CMD ["/bin/main"]
