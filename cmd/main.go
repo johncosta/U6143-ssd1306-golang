@@ -1,7 +1,7 @@
 package main
 
 import (
-	"U6143-ssd1306-golang/ipaddr"
+	"U6143-ssd1306-golang/system"
 	"fmt"
 	"log"
 	"os"
@@ -21,8 +21,12 @@ func main() {
 }
 
 func forever() {
-	ipv4Addr := ipaddr.Address{}.GetDisplayValueForInterface("eth0")
+	ipv4Addr := system.Address{}.GetDisplayValueForInterface("eth0")
 	log.Printf("Found ipv4 address for eth0 as: %s", ipv4Addr)
+
+	temperature := system.SystemTemperature{}.GetDisplayValueForSystemTemperature("thermal_zone0")
+	log.Printf("Found SystemTemperature for thermal_zone0 as %s", temperature)
+
 	for {
 		time.Sleep(time.Second) // TODO: add sleep duration
 	}
