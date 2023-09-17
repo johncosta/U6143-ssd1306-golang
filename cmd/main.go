@@ -25,7 +25,7 @@ func forever() {
 	log.Printf("Found ipv4 address for eth0 as: %s", ipv4Addr)
 
 	temperature := system.SystemTemperature{}.GetDisplayValueForSystemTemperature("thermal_zone0")
-	log.Printf("Found SystemTemperature for thermal_zone0 as %s", temperature)
+	log.Printf("found SystemTemperature for thermal_zone0 as %s C", temperature)
 
 	for {
 		time.Sleep(time.Second) // TODO: add sleep duration

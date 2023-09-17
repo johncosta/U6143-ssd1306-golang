@@ -1,6 +1,7 @@
 package system
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"runtime"
@@ -18,11 +19,11 @@ func (a SystemTemperature) GetDisplayValueForSystemTemperature(thermalZone strin
 	if err != nil || temperature == nil {
 		return "XX"
 	}
-	return string(*temperature)
+	return fmt.Sprintf("%v", *temperature/1000)
 }
 
 // InCByZone returns the systems temperature in Celsius for the thermal zone specified.
-func (SystemTemperature) InCByZone(thermalZone string) (tempInC *int64, err error) {
+func (SystemTemperature) InCByZone(thermalZone string) (*int64, error) {
 	if runtime.GOOS == "linux" && runtime.GOARCH == "arm64" {
 		log.Printf("found runtime as `%s` and `%s`", runtime.GOOS, runtime.GOARCH)
 		tempData, err := os.ReadFile(systemTemperatureFile)
@@ -30,15 +31,15 @@ func (SystemTemperature) InCByZone(thermalZone string) (tempInC *int64, err erro
 			return nil, err
 		}
 
-		cleanedStringTempData := strings.TrimSpace(string(tempData))
+		var cleanedStringTempData = strings.TrimSpace(string(tempData))
 		log.Printf("found tempData as `%s`", cleanedStringTempData)
 
-		*tempInC, err = strconv.ParseInt(cleanedStringTempData, 10, 64)
+		intValue, err := strconv.ParseInt(cleanedStringTempData, 10, 64)
 		if err != nil {
 			return nil, err
 		}
-		return tempInC, nil
+		return &intValue, nil
 	}
 
-	return tempInC, nil
+	return nil, fmt.Errorf("unsupported runtime")
 }
