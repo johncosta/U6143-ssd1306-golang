@@ -17,7 +17,7 @@ func main() {
 	signal.Notify(quitChannel, syscall.SIGINT, syscall.SIGTERM)
 	<-quitChannel
 	//time for cleanup before exit
-	fmt.Println("Adios!") // TODO: add logging package
+	fmt.Println("Fin!") // TODO: add logging package
 }
 
 func forever() {
@@ -25,8 +25,10 @@ func forever() {
 	log.Printf("Found ipv4 address for eth0 as: %s", ipv4Addr)
 
 	temperature := system.SystemTemperature{}.GetDisplayValueForSystemTemperature("thermal_zone0")
-	log.Printf("found SystemTemperature for thermal_zone0 as %s C", temperature)
+	log.Printf("found System Temperature for thermal_zone0 as %s C", temperature)
 
+	memory := system.Memory{}.GetDisplayValueForSystemMemory()
+	log.Printf("found system memory as: %s", memory)
 	for {
 		time.Sleep(time.Second) // TODO: add sleep duration
 	}
