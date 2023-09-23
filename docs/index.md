@@ -1,4 +1,4 @@
-## Overview
+# Overview
 
 Utronics sells [a rackmount kit](https://www.amazon.com/UCTRONICS-Raspberry-Rackmount-Functionality-Compatible/dp/B09V1DH7VS) for rasberry pi's.  
 
@@ -18,7 +18,7 @@ device requires connecting to the I2C address for the oled screen.
 Looking around, there's already an I2C golang package for generally interfacing with an I2C device.  Hopefully
 now it's just a matter of writing and reading the correct values to the device.
 
-### Device Address and I2C bus allocation
+## Device Address and I2C bus allocation
 
 ```bash
 $ i2cdetect -y 1
