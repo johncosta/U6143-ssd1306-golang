@@ -3,12 +3,15 @@ package main
 import (
 	"U6143-ssd1306-golang/system"
 	"fmt"
+	"github.com/d2r2/go-i2c"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
 )
+
+const ()
 
 func main() {
 	go forever()
@@ -29,7 +32,14 @@ func forever() {
 
 	memory := system.Memory{}.GetDisplayValueForSystemMemory()
 	log.Printf("found system memory as: %s", memory)
+
+	i2c, err := i2c.NewI2C(0x3c, 1)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer i2c.Close()
+
 	for {
-		time.Sleep(time.Second) // TODO: add sleep duration
+		time.Sleep(time.Microsecond) // TODO: add sleep duration
 	}
 }
