@@ -7,7 +7,7 @@ The fixture has a small screen which is labeled UC-776 Rev B.  This is probably 
 ![Screen](images/screen.png)
 
 This device seems to be a SSD1306 128x32 oled screen.  I'm making some assumptions given what it looks like as compared to other devices
-as well as references to SSD1306 in the [C code base](https://github.com/UCTRONICS/U6143_ssd1306/blob/master/C/ssd1306_i2c.c#L24C13-L24C13). 
+as well as references to SSD1306 in the [C codebase](https://github.com/UCTRONICS/U6143_ssd1306/blob/master/C/ssd1306_i2c.c#L24C13-L24C13). 
 
 Further inspection of the C package reveals that there's an initialization routine for the device.  Interfacing with the 
 device requires connecting to the I2C address for the oled screen.  
