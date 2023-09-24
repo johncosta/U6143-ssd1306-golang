@@ -5,6 +5,11 @@ import (
 	"time"
 )
 
+const (
+	SSD1306_I2C_ADDRESS = 0x3c
+	SSD1306_BUS         = 1
+)
+
 type Lcd struct {
 	i2c *i2c.I2C
 }
@@ -13,6 +18,28 @@ func NewLcd(i2c *i2c.I2C) (*Lcd, error) {
 	this := &Lcd{i2c: i2c}
 	initByteSeq := []byte{
 		0xAE, // disable display
+		//0x40,
+		//0xB0,
+		//0xC8,
+		//0x81,
+		//0xff,
+		//0xa1,
+		//0xa6,
+		//0xa8,
+		//0x1f,
+		//0xd3,
+		//0x00,
+		//0xd5,
+		//0xf0,
+		//0xd9,
+		//0x22,
+		//0xda,
+		//0x02,
+		//0xdb,
+		//0x49,
+		//0x8d,
+		//0x14,
+		//0xaf,
 	}
 	for _, b := range initByteSeq {
 		err := this.writeByte(b, 0)
