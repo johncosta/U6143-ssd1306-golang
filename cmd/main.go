@@ -33,8 +33,8 @@ func forever() {
 	log.Printf("found system memory as: %s", memory)
 
 	i2c, err := i2c.NewI2C(
-		uc776revb.SSD1306_I2C_ADDRESS,
-		uc776revb.SSD1306_BUS)
+		uc776revb.Ssd1306I2cAddress,
+		uc776revb.Ssd1306Bus)
 	if err != nil {
 		log.Print(err)
 	}
