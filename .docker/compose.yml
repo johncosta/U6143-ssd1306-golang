@@ -4,3 +4,8 @@ services:
     build:
       context: ..
       dockerfile: .docker/Dockerfile
+    volumes:
+      # opening this file requires privileged
+      # access as it's owned by root
+      - /dev/i2c-1:/dev/i2c-1
+    privileged: true

@@ -2,7 +2,10 @@ package main
 
 import (
 	"U6143-ssd1306-golang/system"
+	"U6143-ssd1306-golang/uc776revb"
 	"fmt"
+	"github.com/d2r2/go-i2c"
+	"github.com/d2r2/go-logger"
 	"log"
 	"os"
 	"os/signal"
@@ -29,7 +32,22 @@ func forever() {
 
 	memory := system.Memory{}.GetDisplayValueForSystemMemory()
 	log.Printf("found system memory as: %s", memory)
+
+	logger.ChangePackageLogLevel("i2c", logger.InfoLevel)
+	i2c, err := i2c.NewI2C(
+		uc776revb.Ssd1306I2cAddress,
+		uc776revb.Ssd1306Bus)
+	if err != nil {
+		log.Print(err)
+	}
+	defer i2c.Close()
+
+	_, err = uc776revb.NewLcd(i2c)
+	if err != nil {
+		log.Print(err)
+	}
+
 	for {
-		time.Sleep(time.Second) // TODO: add sleep duration
+		time.Sleep(time.Second)
 	}
 }
