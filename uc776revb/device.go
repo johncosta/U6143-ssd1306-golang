@@ -109,6 +109,7 @@ func (this *Lcd) Clear() error {
 			this.writeByte(0, DATA)
 		}
 	}
+
 	return nil
 }
 
