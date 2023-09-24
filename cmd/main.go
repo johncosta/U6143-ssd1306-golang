@@ -35,11 +35,11 @@ func forever() {
 
 	i2c, err := i2c.NewI2C(0x3c, 1)
 	if err != nil {
-		log.Fatal(err)
+		log.Print(err)
 	}
 	defer i2c.Close()
 
 	for {
-		time.Sleep(time.Microsecond) // TODO: add sleep duration
+		time.Sleep(time.Second)
 	}
 }
