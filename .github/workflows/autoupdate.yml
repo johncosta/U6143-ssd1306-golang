@@ -1,10 +1,14 @@
+---
 name: autoupdate
 on:
-  push: {}
+  push:
 jobs:
   autoupdate:
     name: autoupdate
     runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: docker://chinthakagodawita/autoupdate-action:v1
         id: autoupdate
