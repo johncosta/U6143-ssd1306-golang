@@ -1,6 +1,6 @@
 # Overview
 
-Utronics sells [a rackmount kit](https://www.amazon.com/UCTRONICS-Raspberry-Rackmount-Functionality-Compatible/dp/B09V1DH7VS) for rasberry pi's.  
+Utronics sells [a rackmount kit](https://www.amazon.com/UCTRONICS-Raspberry-Rackmount-Functionality-Compatible/dp/B09V1DH7VS) for rasberry pi's.
 
 The fixture has a small screen which is labeled UC-776 Rev B.  This is probably Utronics internal model number as a quick google search doesn't return any devices with that model number.
 
@@ -10,7 +10,7 @@ This device seems to be a SSD1306 128x32 oled screen.  I'm making some assumptio
 as well as references to SSD1306 in the [C codebase](https://github.com/UCTRONICS/U6143_ssd1306/blob/master/C/ssd1306_i2c.c#L24C13-L24C13).
 
 Further inspection of the C package reveals that there's an initialization routine for the device.  Interfacing with the
-device requires connecting to the I2C address for the oled screen.  
+device requires connecting to the I2C address for the oled screen.
 
 > **Note** I2C stands for Inter-Integrated Circuit (I2C).
 > There's a good tutorial on I2C which can be found here: <https://learn.adafruit.com/scanning-i2c-addresses/i2c-basics>
